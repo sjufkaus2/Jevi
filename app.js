@@ -69,10 +69,11 @@ app.get('/', (req, res) => {
 			console.log("it is del");
 			if(req.query.type == "list"){
 				var count = req.query.data;
+				stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data+stor[req.query._id + '_' + req.query.varName][count-1] + stor[req.query._id + '_' + req.query.varName].length});
 				console.log(stor[req.query._id + '_' + req.query.varName][count-1]);
 				console.log(count-1);
 				console.log(stor[req.query._id + '_' + req.query.varName].length);
-				stor[req.query._id + '_' + req.query.varName].splice(count-1,1);
+				//stor[req.query._id + '_' + req.query.varName].splice(count-1,1);
 			}
 		}
 		if(req.query.type == "list"){
