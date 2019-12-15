@@ -66,6 +66,8 @@ app.get('/', (req, res) => {
 		if(req.query.cod == "del"){
 			if(req.query.type == "list"){
 				var count = req.query.data;
+				console.log(stor[req.query._id + '_' + req.query.varName][count-1]);
+				console.log(count-1);
 				stor[req.query._id + '_' + req.query.varName].splice(count-1,1);
 			}
 		}
