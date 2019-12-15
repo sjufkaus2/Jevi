@@ -12,6 +12,7 @@
 		var o=e.getField("LIST",e),
 		r=e.getValue("VALUE",e),
 		n=Entry.variableContainer.getList(o,t);
+		console.log("it's removed!");
 		if(!n.array_||!Entry.Utils.isNumber(r)||r>n.array_.length)
 			throw new Error("can not remove value from array");
 		return n.array_.splice(r-1,1),
