@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 		if(req.query.cod == "push"){
 			console.log("it is push");
 			if(req.query.type == "list"){
-				stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data});
+				stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data+" push"});
 			}else if(req.query.type == "var"){
 				if(!stor[req.query._id + '_' + "JVvar"][key.toString('base64')]){
 					stor[req.query._id + '_' + "JVvar"][key.toString('base64')] = {};
