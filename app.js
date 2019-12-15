@@ -68,6 +68,7 @@ app.get('/', (req, res) => {
 				var count = req.query.data;
 				console.log(stor[req.query._id + '_' + req.query.varName][count-1]);
 				console.log(count-1);
+				console.log(stor[req.query._id + '_' + req.query.varName].length);
 				stor[req.query._id + '_' + req.query.varName].splice(count-1,1);
 			}
 		}
