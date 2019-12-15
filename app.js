@@ -67,8 +67,8 @@ app.get('/', (req, res) => {
 			if(req.query.type == "list"){
 				var count = req.query.data;
 				stor[req.query._id + '_' + req.query.varName].splice(count-1,1);
-			}*/
-		}
+			}
+		}*/
 		if(req.query.type == "list"){
 			ret._data = stor[req.query._id + '_' + req.query.varName];	
 			ret.type = "list";
