@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 		}
 		if(req.quety.cod == "del"){
 			if(req.query.type == "list"){
-				stor[req.query._id + '_' + req.query.varname].splice({data:req.query.data},1);
+				stor[req.query._id + '_' + req.query.varname].splice({data:req.query.data}-1,1);
 			}
 		}
 		if(req.query.type == "list"){
