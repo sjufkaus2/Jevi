@@ -52,6 +52,7 @@ app.get('/', (req, res) => {
 		}
 
 		if(req.query.cod == "push"){
+			console.log("it is push");
 			if(req.query.type == "list"){
 				stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data});
 			}else if(req.query.type == "var"){
@@ -64,6 +65,7 @@ app.get('/', (req, res) => {
 
 		}
 		if(req.query.cod == "del"){
+			console.log("it is del");
 			if(req.query.type == "list"){
 				var count = req.query.data;
 				console.log(stor[req.query._id + '_' + req.query.varName][count-1]);
