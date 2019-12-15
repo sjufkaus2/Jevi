@@ -2,7 +2,7 @@ const args = process.argv;
 
 const ServerName = args[2];// "Andecola"
 const ServerLink = args[3];// "http://jevi.ga:3000"
-const ServerVersion = "1.1.0";
+const ServerVersion = "1.1.1";
 
 const moment = require('moment');
 
