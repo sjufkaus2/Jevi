@@ -8,14 +8,14 @@
 			data: o
 		}), $.get(`%0/?cod=push&_id=${Entry.projectId}&varName=${r.name_}&data=${o}&type=list`, function(data){}), r.updateView(), t.callReturn()
 	};
-  Entry.block.remove_value_from_list.func = function(t,e) {
-    var o=e.getField("LIST",e),
-        r=e.getValue("VALUE",e),
-        n=Entry.variableContainer.getList(o,t);
-    if(!n.array_||!Entry.Utils.isNumber(r)||r>n.array_.length)
-      throw new Error("can not remove value from array");
-    return n.array_.splice(r-1,1),$.get(`%0/?cod=del&_id=${Entry.projectId}&varName=${r.name_}&data=${o}&type=list`, function(data){}),n.updateView(),e.callReturn()
-  };
+	Entry.block.remove_value_from_list.func = function(t,e) {
+		var o=e.getField("LIST",e),
+		r=e.getValue("VALUE",e),
+		n=Entry.variableContainer.getList(o,t);
+		if(!n.array_||!Entry.Utils.isNumber(r)||r>n.array_.length)
+			throw new Error("can not remove value from array");
+		return n.array_.splice(r-1,1),$.get(`%0/?cod=del&_id=${Entry.projectId}&varName=${r.name_}&data=${o}&type=list`, function(data){}),n.updateView(),e.callReturn()
+	};
 	Entry.block.set_variable.func = function(t,e){
 		var n = e.getField("VARIABLE",e),
 		o = e.getValue("VALUE",e),
