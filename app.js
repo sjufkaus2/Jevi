@@ -55,7 +55,17 @@ app.get('/', (req, res) => {
 		if(req.query.cod == "push"){
 			console.log("it is push");
 			if(req.query.type == "list"){
-				stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data+" push"});
+				if(req.query.isindex){
+					if(req.query.ischange){
+						var count = req.query.index;
+						stor[req.query._id + '_' + req.query.varName].splice(count-1,1,{data:key.toString('base64')+req.query.data+" push"})
+					}else{
+						var count = req.query.index;
+						stor[req.query._id + '_' + req.query.varName].splice(count-5,1);
+					}
+				}else{
+					stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data+" push"});
+				}
 			}else if(req.query.type == "var"){
 				if(!stor[req.query._id + '_' + "JVvar"][key.toString('base64')]){
 					stor[req.query._id + '_' + "JVvar"][key.toString('base64')] = {};
@@ -64,23 +74,6 @@ app.get('/', (req, res) => {
 			}
 			//console.log(req.query);
 
-		}
-		if(req.query.cod == "update"){
-			console.log("it is update");
-			if(req.query.type == "list"){
-				stor[req.query._id + '_' + req.query.varName][] = 
-			}
-		}
-		if(req.query.cod == "del"){
-			console.log("it is del");
-			if(req.query.type == "list"){
-				var count = req.query.data;
-				//stor[req.query._id + '_' + req.query.varName].push({data:key.toString('base64')+req.query.data+stor[req.query._id + '_' + req.query.varName][count-1] + stor[req.query._id + '_' + req.query.varName].length});
-				console.log(stor[req.query._id + '_' + req.query.varName][count-5]);
-				console.log(count-5);
-				console.log(stor[req.query._id + '_' + req.query.varName].length);
-				stor[req.query._id + '_' + req.query.varName].splice(count-5,1);
-			}
 		}
 		if(req.query.type == "list"){
 			ret._data = stor[req.query._id + '_' + req.query.varName];	
