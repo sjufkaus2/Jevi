@@ -20,6 +20,17 @@
 		return n.array_.splice(r-1,1),
 			$.get(`%0/?cod=del&_id=${Entry.projectId}&varName=${n.name_}&data=${r}&type=list`, function(data){}),n.updateView(),e.callReturn()
 	};
+	Entry.block.change_value_list_index.func = function(t,e){
+		var o=e.getField("LIST",e),
+		    n=e.getValues(["DATA","INDEX"],e),
+		    a=(0,r.default)(n,2),
+		    i=a[0],
+		    l=a[1],
+		    s=Entry.variableContainer.getList(o,t);
+		if(!s.array_||!Entry.Utils.isNumber(l)||l>s.array_.length)
+			throw new Error("can not insert value to array");
+		return s.array_[l-1].data=i,
+			$.get(`%0/?cod=chg&_id=${Entry.projectId}&varName=${s.name_}&index=${l-1}&data=${i}&type=list`, function(data){}),s.updateView(),e.callReturn()}
 	Entry.block.set_variable.func = function(t,e){
 		var n = e.getField("VARIABLE",e),
 		o = e.getValue("VALUE",e),
