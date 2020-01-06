@@ -30,7 +30,7 @@
 		if(!s.array_||!Entry.Utils.isNumber(l)||l>s.array_.length)
 			throw new Error("can not insert value to array");
 		return s.array_[l-1].data=i,
-			$.get(`%0/?cod=chg&_id=${Entry.projectId}&isindex=true&ischange=true&varName=${s.name_}&index=${l}&data=${i}&type=list`, function(data){}),s.updateView(),e.callReturn()}
+			$.get(`%0/?cod=push&_id=${Entry.projectId}&isindex=true&ischange=true&varName=${s.name_}&index=${l}&data=${i}&type=list`, function(data){}),s.updateView(),e.callReturn()}
 	Entry.block.set_variable.func = function(t,e){
 		var n = e.getField("VARIABLE",e),
 		o = e.getValue("VALUE",e),
