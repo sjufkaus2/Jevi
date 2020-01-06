@@ -65,6 +65,12 @@ app.get('/', (req, res) => {
 			//console.log(req.query);
 
 		}
+		if(req.query.cod == "update"){
+			console.log("it is update");
+			if(req.query.type == "list"){
+				stor[req.query._id + '_' + req.query.varName][] = 
+			}
+		}
 		if(req.query.cod == "del"){
 			console.log("it is del");
 			if(req.query.type == "list"){
